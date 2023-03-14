@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+void abertura() {
+    printf("*********************\n");
+    printf("*   Jogo de Forca   *\n");
+    printf("*********************\n\n");
+}
+
+void chuta(int tentativas, char chutes[26]) {
+    char chute;
+    scanf(" %c", &chute);
+
+    chutes[tentativas] = chute;
+}
+
 int main ()
 {
     char secretWord[20];
@@ -11,6 +24,8 @@ int main ()
 
     char chutes[26];
     int tentativas = 0;
+
+    abertura();
 
     do {
         
@@ -33,10 +48,8 @@ int main ()
         }
         printf("\n");
 
-        char chute;
-        scanf(" %c", &chute);
-
-        chutes[tentativas] = chute;
+        chuta(tentativas, chutes);
         tentativas++;
+
     } while (!acertou && !enforcou);
 }
