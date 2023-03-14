@@ -7,11 +7,12 @@ void abertura() {
     printf("*********************\n\n");
 }
 
-void chuta(int tentativas, char chutes[26]) {
+void chuta(int* tentativas, char chutes[26]) {
     char chute;
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chute;
+    chutes[*tentativas] = chute;
+    (*tentativas)++;
 }
 
 int main ()
@@ -48,8 +49,7 @@ int main ()
         }
         printf("\n");
 
-        chuta(tentativas, chutes);
-        tentativas++;
+        chuta(&tentativas, chutes);
 
     } while (!acertou && !enforcou);
 }
