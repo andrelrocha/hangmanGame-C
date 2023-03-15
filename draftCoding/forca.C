@@ -4,7 +4,7 @@
 //variaveis globais
 char secretWord[20];
 char chutes[26];
-int tentativas = 0;
+int chutesDados = 0;
 
 void abertura() {
     printf("*********************\n");
@@ -16,13 +16,13 @@ void chuta() {
     char chute;
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chute;
-    tentativas++;
+    chutes[chutesDados] = chute;
+    chutesDados++;
 }
 
 int jaChutou (char letra) {
     int achou = 0;
-    for (int j = 0; j < tentativas; j++) {
+    for (int j = 0; j < chutesDados; j++) {
             if (chutes[j] == letra) {
                 achou = 1; 
                 break;
@@ -50,11 +50,30 @@ void escolhePalavra() {
     sprintf(secretWord, "pineapple");
 } 
 
+int enforcou() {
+    int erros = 0;
+
+    for (int i = 0; i < chutesDados; i++) {
+        int existe = 0;
+
+        for (int j = 0; j < strlen(secretWord); j++) {
+            if (chutes[i] == secretWord[j]) {
+                existe = 1;
+                break;
+            }
+        }
+
+        if (!existe) erros++;
+        
+    }
+
+    return erros >= 5;
+}
+
 int main ()
 {
     
     int acertou = 0;
-    int enforcou = 0;
 
     escolhePalavra();
     abertura();
@@ -64,5 +83,5 @@ int main ()
         desenhaForca();
         chuta();
 
-    } while (!acertou && !enforcou);
+    } while (!acertou && !enforcou());
 }
