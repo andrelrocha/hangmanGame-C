@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
-//variaveis globais
-char secretWord[20];
-char chutes[26];
-int chutesDados = 0;
+#include "forca.h"
 
 void abertura() {
     printf("*********************\n");
