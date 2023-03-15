@@ -48,6 +48,10 @@ void escolhePalavra() {
     FILE* f;
 
     f = fopen("palavras.txt", "r");
+    if (f == 0) {
+        printf("Desculpe, banco de dados não disponível.\n\n");
+        exit(1); 
+    }
 
     int qtdDePalavras;
     fscanf(f, "%d", &qtdDePalavras);
