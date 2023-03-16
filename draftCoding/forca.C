@@ -52,32 +52,35 @@ void checaTxt(FILE* f) {
 }
 
 void adicionaPalavra() {
-
+    
     char deseja;
 
-    printf("Você deseja adicionar uma nova palavra no jogo? (y/n)");
+    printf("Voce deseja adicionar uma nova palavra no jogo? (y/n)\n");
     scanf(" %c", &deseja);
     if (deseja == 'y') {
         char novaPalavra[20];
-        printf("Qual a nova palavra?");
+        printf("Qual a nova palavra?\n");
         scanf(" %s", novaPalavra);
+    
     FILE* f;
 
     f = fopen("palavras.txt", "r+");
     checaTxt(f);
 
-
+    // Lê a quantidade atual de palavras no arquivo
     int qtd;
     fscanf(f, "%d", &qtd);
     qtd++;
-    fseek(f, 0, SEEK_SET);
-    fprintf(f, "\n%d", qtd);
 
+    // Volta para o início do arquivo e atualiza a quantidade de palavras
+    fseek(f, 0, SEEK_SET);
+    fprintf(f, "%d", qtd);
+
+    // Adiciona a nova palavra no final do arquivo
     fseek(f, 0, SEEK_END);
     fprintf(f, "\n%s", novaPalavra);
 
     fclose(f);
-        
     }
 }
 
@@ -141,4 +144,6 @@ int main ()
         chuta();
 
     } while (!acertou() && !enforcou());
+
+    adicionaPalavra();
 }
