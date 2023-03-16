@@ -5,6 +5,7 @@ void desenhaForca();
 void escolhePalavra();
 int acertou();
 int enforcou();
+void adicionaPalavra();
 
 //variaveis globais
 char secretWord[20];

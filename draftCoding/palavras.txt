@@ -1,4 +1,4 @@
-26
+28
 banana
 pera
 chocolate
@@ -25,3 +25,5 @@ kiwi
 manga
 melancia
 pitaya
+tomate
+guarana
