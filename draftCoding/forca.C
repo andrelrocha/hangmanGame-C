@@ -44,6 +44,13 @@ void desenhaForca() {
 
 }
 
+void checaTxt(FILE* f) {
+    if (f == 0) {
+        printf("Desculpe, banco de dados não disponível.\n\n");
+        exit(1); 
+    }
+}
+
 void adicionaPalavra() {
 
     char deseja;
@@ -57,6 +64,8 @@ void adicionaPalavra() {
     FILE* f;
 
     f = fopen("palavras.txt", "r+");
+    checaTxt(f);
+
 
     int qtd;
     fscanf(f, "%d", &qtd);
@@ -76,10 +85,7 @@ void escolhePalavra() {
     FILE* f;
 
     f = fopen("palavras.txt", "r");
-    if (f == 0) {
-        printf("Desculpe, banco de dados não disponível.\n\n");
-        exit(1); 
-    }
+    checaTxt(f);
 
     int qtdDePalavras;
     fscanf(f, "%d", &qtdDePalavras);
