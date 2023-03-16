@@ -44,6 +44,34 @@ void desenhaForca() {
 
 }
 
+void adicionaPalavra() {
+
+    char deseja;
+
+    printf("Você deseja adicionar uma nova palavra no jogo? (y/n)");
+    scanf(" %c", &deseja);
+    if (deseja == 'y') {
+        char novaPalavra[20];
+        printf("Qual a nova palavra?");
+        scanf(" %s", novaPalavra);
+    FILE* f;
+
+    f = fopen("palavras.txt", "r+");
+
+    int qtd;
+    fscanf(f, "%d", &qtd);
+    qtd++;
+    fseek(f, 0, SEEK_SET);
+    fprintf(f, "\n%d", qtd);
+
+    fseek(f, 0, SEEK_END);
+    fprintf(f, "\n%s", novaPalavra);
+
+    fclose(f);
+        
+    }
+}
+
 void escolhePalavra() {
     FILE* f;
 
