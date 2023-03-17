@@ -31,17 +31,34 @@ int jaChutou (char letra) {
 }
 
 void desenhaForca() {
-    int erros;
+    int erros = chutesErrados();
+    int tamanhoErros = 5;
 
     printf("  _______      \n"); 
-    printf(" |/      |     \n"); 
-    printf(" |      (_)    \n"); 
-    printf(" |      \\|/   \n"); 
-    printf(" |       |     \n"); 
-    printf(" |      / \\   \n"); 
-    printf(" |             \n"); 
+    printf(" |/      |     \n");
+
+    char* partesForca[] = {
+        " |      (_)    \n",
+        " |      \\|/   \n",
+        " |       |     \n",
+        " |      / \\   \n"
+    };
+
+    if (erros != 0) {
+        for (int i = 0; i < tamanhoErros; i++) {
+            if (i < erros) {
+                printf("%s", partesForca[i]);
+            } else {
+                printf(" |             \n");
+            }
+        }
+    } else {
+        for (int i = 0; i < tamanhoErros; i++) {
+            printf(" |             \n");
+        }
+    }
+
     printf("_|___          \n"); 
-    printf("\n\n");
     
     for (int i = 0; i < strlen(secretWord); i++) {
 
@@ -164,6 +181,7 @@ int main ()
     } while (!acertou() && !enforcou());
 
     if (acertou()) {
+        printf("\nExatamente, a palavra secreta era %s.\n\n", &secretWord);
         printf("Parabens, voce ganhou o jogo!\n\n");
         adicionaPalavra();
     }  else {
