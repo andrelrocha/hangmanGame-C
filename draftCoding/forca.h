@@ -7,7 +7,9 @@ int acertou();
 int enforcou();
 void adicionaPalavra();
 
+#define TAMANHO_PALAVRA 20
+
 //variaveis globais
-char secretWord[20];
+char secretWord[TAMANHO_PALAVRA];
 char chutes[26];
 int chutesDados = 0;
