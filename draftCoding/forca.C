@@ -5,9 +5,10 @@
 #include "forca.h"
 
 void abertura() {
-    printf("*********************\n");
-    printf("*   Jogo de Forca   *\n");
-    printf("*********************\n\n");
+    printf("**********************\n");
+    printf("*   Jogo da Forca    *\n");
+    printf("*  Adivinhe a fruta  *\n");
+    printf("**********************\n\n");
 }
 
 void chuta() {
