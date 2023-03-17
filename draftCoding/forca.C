@@ -58,7 +58,7 @@ void adicionaPalavra() {
     printf("Voce deseja adicionar uma nova palavra no jogo? (y/n)\n");
     scanf(" %c", &deseja);
     if (deseja == 'y') {
-        char novaPalavra[20];
+        char novaPalavra[TAMANHO_PALAVRA];
         printf("Qual a nova palavra?\n");
         scanf(" %s", novaPalavra);
     
@@ -145,5 +145,10 @@ int main ()
 
     } while (!acertou() && !enforcou());
 
-    adicionaPalavra();
+    if (acertou()) {
+        printf("Parabens, voce ganhou o jogo!\n\n");
+        adicionaPalavra();
+    }  else {
+        printf("Poxa. Voce foi enforcado, fica para proxima.\n");
+    }
 }
