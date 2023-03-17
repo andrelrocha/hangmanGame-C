@@ -6,6 +6,7 @@ void escolhePalavra();
 int acertou();
 int enforcou();
 void adicionaPalavra();
+int chutesErrados();
 
 #define TAMANHO_PALAVRA 20
 

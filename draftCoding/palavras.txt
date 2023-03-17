@@ -1,7 +1,6 @@
-28
+29
 banana
 pera
-chocolate
 morango
 tangerina
 laranja
@@ -27,3 +26,5 @@ melancia
 pitaya
 tomate
 guarana
+cacau
+lima
