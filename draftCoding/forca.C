@@ -31,6 +31,18 @@ int jaChutou (char letra) {
 }
 
 void desenhaForca() {
+    int erros;
+
+    printf("  _______      \n"); 
+    printf(" |/      |     \n"); 
+    printf(" |      (_)    \n"); 
+    printf(" |      \\|/   \n"); 
+    printf(" |       |     \n"); 
+    printf(" |      / \\   \n"); 
+    printf(" |             \n"); 
+    printf("_|___          \n"); 
+    printf("\n\n");
+    
     for (int i = 0; i < strlen(secretWord); i++) {
 
         int achou = jaChutou(secretWord[i]);
@@ -113,7 +125,7 @@ int acertou() {
     return 1;
 }
 
-int enforcou() {
+int chutesErrados() {
     int erros = 0;
 
     for (int i = 0; i < chutesDados; i++) {
@@ -130,7 +142,12 @@ int enforcou() {
         
     }
 
-    return erros >= 5;
+    return erros;
+}
+
+int enforcou() {
+
+    return chutesErrados() >= 5;
 }
 
 int main ()
